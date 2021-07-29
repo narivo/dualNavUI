@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/splashScreen">
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.dualnavui.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.dualnavui.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home_nav" />
+    </fragment>
+    <navigation android:id="@+id/home_nav"
+        app:startDestination="@id/home2">
+        <fragment
+            android:id="@+id/settings"
+            android:name="com.example.dualnavui.Settings"
+            android:label="fragment_settings"
+            tools:layout="@layout/fragment_settings" >
+            <action
+                android:id="@+id/action_settings_to_login"
+                app:destination="@id/login" />
+        </fragment>
+        <fragment
+            android:id="@+id/home2"
+            android:name="com.example.dualnavui.Home"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home">
+            <action
+                android:id="@+id/action_home2_to_settings"
+                app:destination="@id/settings" />
+        </fragment>
+    </navigation>
+</navigation>
